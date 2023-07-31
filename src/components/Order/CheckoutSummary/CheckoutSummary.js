@@ -3,19 +3,25 @@ import Burger from "./../../Burger/Burger";
 import Button from "./../../UI/Button/Button";
 import styles from "./CheckoutSummary.module.css";
 
-const CheckoutSummary = props => {
+const CheckoutSummary = (props) => {
   return (
     <div className={styles.CheckoutSummary}>
-      <h1>It's taste Delicius</h1>
+      <div className="text-3xl font-extrabold p-5">It's taste Delicius</div>
       <div style={{ width: "100%", margin: "auto" }}>
         <Burger ingredient={props.ingredient} />
       </div>
-      <Button btnType="Danger" clicked={props.cancelCheckout}>
-        Cancel
-      </Button>
-      <Button btnType="Success" clicked={props.continueCheckout}>
-        Payment
-      </Button>
+      <div className="flex justify-around w-[100%] p-10">
+        <div>
+          <Button btnType="Danger" clicked={props.cancelCheckout}>
+            Cancel
+          </Button>
+        </div>
+        <div>
+          <Button btnType="Success" clicked={props.continueCheckout}>
+            Payment
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

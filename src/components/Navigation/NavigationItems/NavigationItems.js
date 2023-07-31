@@ -6,7 +6,7 @@ const NavigationItems = (props) => {
   return (
     <ul className={styles.NavigationItems}>
       <NavigationItem link="/" exact>
-        Burger Builder
+        My Burger
       </NavigationItem>
       {props.isAuth ? (
         <NavigationItem link="/random">Random Burger</NavigationItem>

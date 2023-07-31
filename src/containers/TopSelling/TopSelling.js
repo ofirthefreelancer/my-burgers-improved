@@ -25,6 +25,7 @@ class TopSelling extends Component {
     this.setState({ continuetoCheckout: true });
   };
   generate = () => {
+    this.setState({ continuetoCheckout: false });
     this.setState({ loading: true });
     setTimeout(() => {
       let randomElement =
@@ -60,8 +61,9 @@ class TopSelling extends Component {
           </div>
         ) : (
           <div className=" p-5 flex flex-col items-center justify-center w-[100%]">
-            <div className="text-xl font-bold ">
-              Generate a random burger and order it!
+            <div className="text-xl font-bold text-center ">
+              Generate,order,eat - our random menu is here.
+              <div>It's simple, try it now!</div>
             </div>
             {this.state.loading ? (
               <div className="p-5">
@@ -69,23 +71,25 @@ class TopSelling extends Component {
               </div>
             ) : (
               <div className="flex flex-col justify-center items-center">
-                <div>
+                <div className="p-5">
                   <Button
                     style={{ padding: "0" }}
                     btnType="Danger"
                     clicked={this.generate}
                   >
-                    GENERATE
+                    I'M HUNGRY, GENERATE A BURGER!
                   </Button>
+                  <hr className="w-[100%]" />
                 </div>
                 {this.state.generatedBurger ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <div className="p-2 text-bold text-xl">
+                  <div className="flex flex-col justify-center items-center border-[1px]">
+                    <div className="p-2 font-extrabold text-xl">
                       {this.state.generatedBurger.name}
                     </div>
                     <div className="p-2 italic">
                       {this.state.generatedBurger.description}
                     </div>{" "}
+                    ingredients:
                     <div className="p-2 font-light">
                       <ul>
                         {this.state.generatedBurger.ingredients.map((ing) => {
@@ -93,16 +97,17 @@ class TopSelling extends Component {
                         })}
                       </ul>
                     </div>
-                    <div className="p-2 font-extrabold">
+                    <div className="p-10 font-extrabold">
                       Price: {this.state.generatedBurger.price} USD
                     </div>
                     <Button
-                      style={{ padding: "0" }}
+                      style={{ padding: "20px" }}
                       btnType="Success"
                       clicked={this.orderitnow}
                     >
                       ORDER IT NOW
                     </Button>
+                    <hr />
                     {this.state.continuetoCheckout ? (
                       <div>
                         <ContactData />
