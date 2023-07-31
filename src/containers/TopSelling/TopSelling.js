@@ -70,7 +70,7 @@ class TopSelling extends Component {
                 <Spinner />
               </div>
             ) : (
-              <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justiy-center items-center border ">
                 <div className="p-5">
                   <Button
                     style={{ padding: "0" }}
